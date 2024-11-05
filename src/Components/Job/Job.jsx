@@ -1,10 +1,11 @@
 import PropTypes from "prop-types";
 import { FaLocationDot } from "react-icons/fa6";
 import { AiFillDollarCircle } from "react-icons/ai";
-
+import { Link } from "react-router-dom";
 
 const Job = ({ job }) => {
   const {
+    id,
     logo,
     job_title,
     company_name,
@@ -16,7 +17,6 @@ const Job = ({ job }) => {
   const placeLeft = {
     "justify-content": "start",
   };
-  console.log(logo);
   return (
     <div className="card card-compact bg-base-100 text-left drop-shadow-[0_3px_3px_rgba(0,0,0,0.25)] p-4">
       <figure style={placeLeft} className="px-4">
@@ -42,7 +42,9 @@ const Job = ({ job }) => {
           </div>
         </div>
         <div className="card-actions">
-          <button className="btn btn-primary">View Details</button>
+          <Link to={`/jobDetails/${id}`}>
+            <button className="btn btn-primary">View Details</button>
+          </Link>
         </div>
       </div>
     </div>

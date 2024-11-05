@@ -3,6 +3,8 @@ import Job from "../Job/Job";
 
 const FeaturedList = () => {
   const [jobs, setJobs] = useState([]);
+  //  This not the right way to load limited data
+  const [loadDataLength, setLoadDataLength] = useState(4);
 
   useEffect(() => {
     fetch("jobs.json")
@@ -20,9 +22,12 @@ const FeaturedList = () => {
         </p>
       </div>
       <div className="grid grid-cols-2 gap-4">
-        {jobs.map((job, idx) => (
+        {jobs.slice(0, loadDataLength).map((job, idx) => (
           <Job job={job} key={idx}></Job>
         ))}
+      </div>
+      <div className={`my-4 ${loadDataLength === jobs.length && "hidden"}`}>
+        <button onClick={()=>setLoadDataLength(jobs.length)} className="btn">Show All Jobs</button>
       </div>
     </div>
   );
