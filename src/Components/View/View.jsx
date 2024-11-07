@@ -3,6 +3,8 @@ import { CiDollar, CiMail, CiLocationOn } from "react-icons/ci";
 import "./View.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { storedAppliedJob } from "../../Utility/LocalStorage";
+import SubBanner from "../SubBanner/SubBanner";
 
 const View = () => {
   const id = parseInt(useParams().id);
@@ -17,14 +19,13 @@ const View = () => {
     job_title,
     contact_information,
   } = jobDetails;
-  const notify = () => toast("You have applied successfully!!!");
+  const notify = () => {
+    storedAppliedJob(id);
+    toast("You have applied successfully!!!");
+  };
   return (
     <div className="mb-4">
-      <div className="bg h-[150px] gird grid-cols-3 content-center rounded-xl">
-        <div className="w-full text-center">
-          <h2 className="text-2xl font-semibold align-middle">Job Details</h2>
-        </div>
-      </div>
+      <SubBanner value={"Applied Details"}></SubBanner>
       <div className="grid grid-cols-3 gap-4">
         <div className="col-span-2 border-2 rounded-xl space-y-2 p-4">
           <p className="text-lg">

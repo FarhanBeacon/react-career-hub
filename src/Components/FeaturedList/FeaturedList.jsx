@@ -3,7 +3,7 @@ import Job from "../Job/Job";
 
 const FeaturedList = () => {
   const [jobs, setJobs] = useState([]);
-  //  This not the right way to load limited data
+  // This not the right way to load limited data
   const [loadDataLength, setLoadDataLength] = useState(4);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ const FeaturedList = () => {
   return (
     <div>
       <div>
-        <h2 className="text-5xl">Featured Jobs: {jobs.length}</h2>
+        <h2 className="text-5xl">Featured Jobs</h2>
         <p>
           Explore thousands of job opportunities with all the information you
           need. Its your future
@@ -27,7 +27,9 @@ const FeaturedList = () => {
         ))}
       </div>
       <div className={`my-4 ${loadDataLength === jobs.length && "hidden"}`}>
-        <button onClick={()=>setLoadDataLength(jobs.length)} className="btn">Show All Jobs</button>
+        <button onClick={() => setLoadDataLength(jobs.length)} className="btn">
+          Show All Jobs
+        </button>
       </div>
     </div>
   );
