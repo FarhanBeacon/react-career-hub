@@ -8,6 +8,7 @@ const getStoredJobApplication = () => {
 
 const storedAppliedJob = (id) => {
   const storedAppliedJob = getStoredJobApplication();
+  
   const exists = storedAppliedJob.find((jobId) => jobId === id);
   if(!exists){
     storedAppliedJob.push(id);

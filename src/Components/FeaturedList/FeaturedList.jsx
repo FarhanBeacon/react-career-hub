@@ -13,7 +13,7 @@ const FeaturedList = () => {
   }, []);
 
   return (
-    <div>
+    <div className="mb-6">
       <div>
         <h2 className="text-5xl">Featured Jobs</h2>
         <p>
